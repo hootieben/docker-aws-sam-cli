@@ -1,3 +1,15 @@
+NAME := hootieben/aws-sam-cli
+TAG := 0.52.0
+IMG := ${NAME}:v${TAG}
+LATEST := ${NAME}:latest
+
+build:
+	@docker build --build-arg VERSION=${TAG} -t ${IMG} .
+	@docker tag ${IMG} ${LATEST}
+
+push:
+	@docker push ${IMG}
+
 CMD := docker run -it --rm \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v "$(PWD)":/var/opt \
@@ -8,5 +20,8 @@ CMD := docker run -it --rm \
 help:
 	@$(CMD)
 
-build:
-	docker build -t hootieben/aws-sam-cli .
+info:
+	@$(CMD) --info
+
+version:
+	@$(CMD) --version
