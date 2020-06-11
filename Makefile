@@ -15,6 +15,7 @@ CMD := docker run -it --rm \
 	-v "$(PWD)":/var/opt \
 	-v "$(HOME)"/.aws:/root/.aws \
 	-p "3000:3000" \
+	-p "3001:3001" \
 	hootieben/aws-sam-cli
 
 help:

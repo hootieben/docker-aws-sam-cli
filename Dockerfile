@@ -14,5 +14,6 @@ RUN apk add --no-cache curl python3 python3-dev musl-dev gcc && \
 WORKDIR /var/opt
 
 EXPOSE 3000
+EXPOSE 3001
 
 ENTRYPOINT ["/usr/bin/sam"]
